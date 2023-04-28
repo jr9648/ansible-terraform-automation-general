@@ -3,7 +3,7 @@ resource "proxmox_vm_qemu" "{{ item.uuid }}-gw-{{ loop.index }}" {
     # VM General Settings
     target_node = "{{ sgw_pve_nodes[loop.index - 1] }}"
     name = "{{ item.uuid }}-{{ loop.index }}"
-#    desc = "{{ item.comments }} - SGW{{ loop.index }}"
+    desc = "{{ item.comments }} - SGW{{ loop.index }}"
 
     # hagroup = "{{ vm_config.hagroup }}"
 
@@ -11,7 +11,7 @@ resource "proxmox_vm_qemu" "{{ item.uuid }}-gw-{{ loop.index }}" {
     onboot = true
 
     # VM OS Settings
-    clone = "VM-template"
+    clone = "ubuntu-cloud"
 
     full_clone = true
 
@@ -53,7 +53,7 @@ resource "proxmox_vm_qemu" "{{ item.uuid }}-gw-{{ loop.index }}" {
     # (Optional) Add your SSH KEY
     sshkeys = <<EOF
     {{ ssh_public_key }}
-    {{ ssh_public_key_gw_result }}
+    {{ ssh_public_key_gw_result.stdout }}
     EOF
 }
 
