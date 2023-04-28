@@ -32,7 +32,7 @@
         path: "/opt/vm-config/terraform/{{ item.uuid }}.tf"
         state: absent    
 
-    - name: remove locally stored ssh keys on sysmgr
+    - name: remove locally stored ssh keys on local_host
       file:
         path: "{{ _item }}"
         state: absent

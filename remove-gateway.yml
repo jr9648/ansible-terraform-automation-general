@@ -18,8 +18,7 @@
       when: ireallymeanit != 'yes'
 
 - name: remove-gateway
-  hosts:
-    - sysmgr
+  hosts: localhost
 
   gather_facts: false
   any_errors_fatal: true
