@@ -1,5 +1,5 @@
 ---
-- hosts:
+- hosts: localhost
     - mains
 
   gather_facts: false

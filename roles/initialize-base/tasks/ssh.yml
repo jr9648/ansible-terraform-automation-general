@@ -30,9 +30,9 @@
 
     - name: install ansible authorized key
       ansible.posix.authorized_key:
-        user: "{{ item }}"
+        user: jr
         state: present
-        key: "{{ lookup('file', ssh_private_key_path + '.pub') }}"
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
       with_items:
         - "root"
-        - "{{ ansible_ssh_user }}"
+        - jr

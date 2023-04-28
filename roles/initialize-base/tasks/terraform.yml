@@ -4,7 +4,7 @@
     - name: install terraform dependancies
       package:
         name: "{{ item }}"
-        state: "{{ (upgrade_packages|bool) | ternary('latest','present') }}"
+        state: latest
       register: result
       until: result is succeeded
       with_items:
@@ -24,7 +24,7 @@
     - name: install terraform dependancies
       package:
         name: "terraform"
-        state: "{{ (upgrade_packages|bool) | ternary('latest','present') }}"
+        state: latest
       register: result
       until: result is succeeded
 
