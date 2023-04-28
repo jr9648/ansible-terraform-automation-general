@@ -11,7 +11,7 @@ resource "proxmox_vm_qemu" "{{ item.uuid }}-gw-{{ loop.index }}" {
     onboot = true
 
     # VM OS Settings
-    clone = "VM-template"
+    clone = "lunar-tpl"
 
     full_clone = true
 
@@ -53,7 +53,7 @@ resource "proxmox_vm_qemu" "{{ item.uuid }}-gw-{{ loop.index }}" {
     # (Optional) Add your SSH KEY
     sshkeys = <<EOF
     {{ ssh_public_key }}
-    {{ ssh_public_key_gw_result }}
+    {{ ssh_public_key_gw_result.stdout }}
     EOF
 }
 

@@ -23,11 +23,11 @@ ssh_public_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDT+ghI2UBlTab9xTeJOI9tMGE
 ssh_private_key_path: "/home/ubuntu/.sshkey/cloudinit"
 
 gateways:
-  - uuid: code-vm-1
+  - uuid: codevm
     comments: "Customer 1 Inc."
     nodes:
-      - ip_gateway: 192.168.0.1
-        ip_address: 192.168.135.91
-        ip_cidr: 16
-    dns: 1.1.1.1
+      - ip_gateway: 192.168.29.1
+        ip_address: 192.168.29.91
+        ip_cidr: 24
+    dns: 127.0.1.1
     state: present
